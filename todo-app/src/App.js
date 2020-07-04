@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FirstComponent from './components/learning-examples/FirstComponent';
+import SecondComponent from './components/learning-examples/SecondComponent';
+import ThirdComponent from './components/learning-examples/ThirdComponent';
+import FourthComponent from './components/learning-examples/FourthComponent';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       My Hello World!
-//     </div>
-//   );
-// }
 
+//The parenthesis by the return is vey important
 class App extends Component {
   render() {
     return (
@@ -23,46 +21,5 @@ class App extends Component {
     );
   }
 }
-
-//Class Component
-class FirstComponent extends Component {
-  render() {
-    return (
-      <div className="firstComponent">
-        FirstComponent
-      </div>
-    );
-  }
-}
-
-class SecondComponent extends Component {
-  render() {
-    return (
-      <div className="secondComponent">
-        SecondComponent
-      </div>
-    );
-  }
-}
-
-
-//Function Component
-function ThirdComponent(){
-  return (
-    <div className="thirdComponent">
-      ThirdComponent
-    </div>
-  );
-}
-
-function FourthComponent(){
-  return (
-    <div className="fourthComponent">
-      FourthComponent
-    </div>
-  );
-}
-
-
 
 export default App;
