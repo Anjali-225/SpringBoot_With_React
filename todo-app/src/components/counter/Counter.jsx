@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Counter.css';
 import { render } from '@testing-library/react';
+import PropTypes from 'prop-types'
 
 class Counter extends Component {
 
@@ -40,6 +41,13 @@ class Counter extends Component {
     
 }
 
+Counter.defaultProps = {
+    by : 1 
+}
+
+Counter.PropTypes = {
+    by  : PropTypes.number
+}
 
 
 export default Counter;

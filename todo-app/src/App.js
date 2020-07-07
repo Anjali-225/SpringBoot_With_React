@@ -10,7 +10,7 @@ import FourthComponent from './components/learning-examples/FourthComponent';
 import Counter from './components/counter/Counter.jsx';
 
 
-//The parenthesis by the return is vey important
+//The parenthesis by the return is very important
 class App extends Component {
   render() {
     return (
