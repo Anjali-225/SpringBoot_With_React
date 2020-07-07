@@ -9,7 +9,7 @@ class Counter extends Component {
     constructor() {
         super() //Error 1
         this.state = {
-            counter : 0
+            counter : 0,
         }
 
         this.increment = this.increment.bind(this);
@@ -17,20 +17,24 @@ class Counter extends Component {
 
 
 
+    //render = () => {
     render() {
         return (
             <div className="counter">
-                <button onClick={this.increment}>+1</button>
+                <button onClick={this.increment}>+{this.props.by}</button>
                 <span className="count" > {this.state.counter} </span>
             </div>
         );
     }
 
-    increment() { //Update state - counter++
+    
+    //increment = () => { //Update state - counter++
+    increment(){
         //console.log('increment');
-        // this.state.counter++
+        // this.state.counter++  //this is very bad practice 
         this.setState({
-            counter: this.state.counter + 1 
+            counter: this.state.counter + this.props.by
+
         })
     }
     
