@@ -9,6 +9,7 @@ import FourthComponent from './components/learning-examples/FourthComponent';
 
 import CounterButton from './components/counter/Counter.jsx';
 import Counter from './components/counter/Counter.jsx';
+import TodoApp from './components/todo/TodoApp.jsx';
 
 
 //The parenthesis by the return is very important
@@ -16,7 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter />    
+        {/*<Counter />*/}
+        <TodoApp />
       </div>
     );
   }
