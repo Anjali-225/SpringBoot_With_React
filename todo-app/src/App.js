@@ -7,6 +7,7 @@ import SecondComponent from './components/learning-examples/SecondComponent';
 import ThirdComponent from './components/learning-examples/ThirdComponent';
 import FourthComponent from './components/learning-examples/FourthComponent';
 
+import CounterButton from './components/counter/Counter.jsx';
 import Counter from './components/counter/Counter.jsx';
 
 
@@ -15,9 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter by={1}/>    
-        <Counter by={5}/>
-        <Counter by={10}/>    
+        <Counter />    
       </div>
     );
   }
