@@ -4,15 +4,34 @@ import { render } from '@testing-library/react';
 import PropsTypes from 'prop-types'
 
 class Counter extends Component {
+    constructor() {
+        super();//Error 1
+        this.state = {
+            counter : 0,
+        }
+        this.increment = this.increment.bind(this);
+    }
+
     render() {
         return (
           <div className="counter">
-            <CounterButton by={1}/>    
-            <CounterButton by={5}/>
-            <CounterButton by={10}/>    
+            <CounterButton by={1} incrementMethod={this.increment} />    
+            <CounterButton by={5} incrementMethod={this.increment} />
+            <CounterButton by={10} incrementMethod={this.increment} />   
+            <span className="count" > {this.state.counter} </span> 
           </div>
         );
       }
+
+      //increment = () => { //Update state - counter++
+    increment(by){
+        //console.log(`increment from child - ${by}`);
+        // this.state.counter++  //this is very bad practice 
+        this.setState({
+            counter: this.state.counter + by
+
+        });
+    }
 }
 
 class CounterButton extends Component {
@@ -35,7 +54,7 @@ class CounterButton extends Component {
         return (
             <div className="counter">
                 <button onClick={this.increment}>+{this.props.by}</button>
-                <span className="count" > {this.state.counter} </span>
+                {/*<span className="count" > {this.state.counter} </span>*/}
             </div>
         );
     }
@@ -47,8 +66,9 @@ class CounterButton extends Component {
         // this.state.counter++  //this is very bad practice 
         this.setState({
             counter: this.state.counter + this.props.by
+        });
 
-        })
+        this.props.incrementMethod(this.props.by);
     }
     
 }
