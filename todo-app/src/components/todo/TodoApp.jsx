@@ -17,12 +17,15 @@ class LoginComponent extends Component {
 
         this.state = {
             username: 'in28minutes',
-            password: ''
+            password: '',
+            hasLoginFailed: false,
+            showSuccessMessage: false
         } 
 
         // this.handleUsernameChange = this.handleUsernameChange.bind(this);
         // this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.loginClicked = this.loginClicked.bind(this);
 
     }
 
@@ -50,9 +53,27 @@ class LoginComponent extends Component {
     //     this.setState({password: event.target.value});
     // }
 
+    loginClicked() {
+        //in28minutes, dummy
+        if(this.state.username === 'in28minutes' && this.state.password === 'dummy'){
+            console.log('Successful');
+            this.setState({showSuccessMessage: true})
+            this.setState({hasLoginFailed: false})
+        } else {
+            console.log('Failed');
+            this.setState({showSuccessMessage: false})
+            this.setState({hasLoginFailed: true})
+        }   
+           
+
+        //console.log(this.state);
+    }
+
     render() {
         return (
             <div>
+                <div> Invalid Credentials</div>
+                <div> Login Successful</div>
 
                 User Name: <input type="text" name="username" 
                     value={this.state.username} onChange={this.handleChange} />
@@ -60,7 +81,7 @@ class LoginComponent extends Component {
                 Password: <input type="password" name="password" 
                     value={this.state.password} onChange={this.handleChange}/>
 
-                <button>Login</button>
+                <button onClick={this.loginClicked} >Login</button>
             </div>
             
         )
