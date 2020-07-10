@@ -14,6 +14,7 @@ class TodoApp extends Component {
                             <Route path="/login" exact component={LoginComponent} />
                             <Route path="/welcome/:name" exact component={WelcomeComponent} />
                             <Route path="/todos" exact component={ListTodosComponent} />
+                            <Route path="/logout" exact component={LogoutComponent} />
                             <Route path="" component={ErrorComponent} />
                         </Switch>
 
@@ -61,8 +62,23 @@ class HeaderComponent extends Component {
 class FooterComponent extends Component {
     render() {
         return (
+            <footer className="footer">
+                <span className="text-muted"> All Rights Reserved 2020 @Anjali </span>                
+            </footer>
+
+        )
+    }
+}
+
+class LogoutComponent extends Component {
+    render() {
+        return (
             <div>
-                <hr/>Footer 
+                <h1>You are logged out</h1> 
+                
+                <div className="container">
+                    Thank You for Using Our Application!
+                </div>
             </div>
 
         )
@@ -86,32 +102,38 @@ class ListTodosComponent extends Component {
     render() {
         return(
             <div>    
-                <h1>List Todos</h1>                  
-                <table>
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>description</th>                            
-                            <th>Is Completed?</th>
-                            <th>Target Date</th>
-                        </tr>
-                    </thead>
+                <h1>List Todos</h1>  
+                
+                <div className="container" >
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>description</th>                            
+                                <th>Is Completed?</th>
+                                <th>Target Date</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        {
-                            this.state.todos.map (
-                                todo =>  <tr>
-                                            <td>{todo.id}</td>
-                                            <td>{todo.description}</td> 
-                                            <td>{todo.done.toString()}</td>
-                                            <td>{todo.targetDate.toString()}</td> 
-                                        </tr>
-                            )
-                        }
+                        <tbody>
+                            {
+                                this.state.todos.map (
+                                    todo =>  <tr>
+                                                <td>{todo.id}</td>
+                                                <td>{todo.description}</td> 
+                                                <td>{todo.done.toString()}</td>
+                                                <td>{todo.targetDate.toString()}</td> 
+                                            </tr>
+                                )
+                            }
 
-                       
-                    </tbody>
-                </table>
+                        
+                        </tbody>
+                    </table>
+                
+                </div>
+                
+               
             </div>
         )
     }
@@ -120,8 +142,11 @@ class ListTodosComponent extends Component {
 class WelcomeComponent extends Component {
     render() {
         return(
-            <div>    
-                Welcome {this.props.match.params.name}. You can manage your todos <Link to="/todos">here</Link>.
+            <div>   
+                <h1>Welcome!</h1> 
+                <div className="container">
+                    Welcome {this.props.match.params.name}. You can manage your todos <Link to="/todos">here</Link>.
+                </div>
             </div>
         )
     }
@@ -190,18 +215,23 @@ class LoginComponent extends Component {
     render() {
         return (
             <div>
-                {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed} />*/}
-                {this.state.hasLoginFailed && <div> Invalid Credentials</div>}
-                {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage} />*/}
-                {this.state.ShowLoginSuccessMessage && <div> Login Successful</div>}
+                <h1>Login</h1>
 
-                User Name: <input type="text" name="username" 
-                    value={this.state.username} onChange={this.handleChange} />
+                <div className="container">
+                    {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed} />*/}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning"> Invalid Credentials</div>}
+                    {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage} />*/}
+                    {this.state.ShowLoginSuccessMessage && <div> Login Successful</div>}
 
-                Password: <input type="password" name="password" 
-                    value={this.state.password} onChange={this.handleChange}/>
+                    User Name: <input type="text" name="username" 
+                        value={this.state.username} onChange={this.handleChange} />
 
-                <button onClick={this.loginClicked} >Login</button>
+                    Password: <input type="password" name="password" 
+                        value={this.state.password} onChange={this.handleChange}/>
+
+                    <button className="btn btn-success" onClick={this.loginClicked} >Login</button>
+                </div>
+                
             </div>
             
         )
