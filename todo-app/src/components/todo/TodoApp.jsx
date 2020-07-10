@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class TodoApp extends Component {
     render() {
@@ -11,6 +11,7 @@ class TodoApp extends Component {
                             <Route path="/" exact component={LoginComponent} />
                             <Route path="/login" exact component={LoginComponent} />
                             <Route path="/welcome/:name" exact component={WelcomeComponent} />
+                            <Route path="/todos" exact component={ListTodosComponent} />
                             <Route path="" component={ErrorComponent} />
                         </Switch>
                         
@@ -26,15 +27,59 @@ class TodoApp extends Component {
     }
 }
 
+class ListTodosComponent extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            todos : 
+                [
+                    {id: 1, description: 'Learn React', done: false, targetDate: new Date() },
+                    {id: 2, description: 'Learn Dance', done: false, targetDate: new Date() },
+                    {id: 3, description: 'Learn New Language', done: false, targetDate: new Date() }
+                ]
+        }
+    }
+
+    render() {
+        return(
+            <div>    
+                <h1>List Todos</h1>                  
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>description</th>                            
+                            <th>Is Completed?</th>
+                            <th>Target Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {
+                            this.state.todos.map (
+                                todo =>  <tr>
+                                            <td>{todo.id}</td>
+                                            <td>{todo.description}</td> 
+                                            <td>{todo.done.toString()}</td>
+                                            <td>{todo.targetDate.toString()}</td> 
+                                        </tr>
+                            )
+                        }
+
+                       
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+
 class WelcomeComponent extends Component {
     render() {
         return(
-            <div>
-                return (
-                    <div>
-                        Welcome {this.props.match.params.name}
-                    </div>
-                )
+            <div>    
+                Welcome {this.props.match.params.name}. You can manage your todos <Link to="/todos">here</Link>.
             </div>
         )
     }
