@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AuthenticationService from'./AuthenticationService.js';
-import { Route, Redirect } from 'react-router-dom';
+// import AuthenticationService from'./AuthenticationService.js';
+// import { Route, Redirect } from 'react-router-dom';
 
 class ListTodosComponent extends Component {
 
@@ -48,8 +48,7 @@ class ListTodosComponent extends Component {
                         </tbody>
                     </table>
                 
-                </div>
-                
+                </div>                
                
             </div>
         )
