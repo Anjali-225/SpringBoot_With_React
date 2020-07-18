@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import AuthenticationService from'./AuthenticationService.js';
 import { BrowserRouter as Link } from "react-router-dom";
+import HelloWorldService from '../../api/todo/HelloWorldService.js';
 
 class WelcomeComponent extends Component {
 
@@ -30,7 +31,10 @@ class WelcomeComponent extends Component {
     }
 
     retrieveWelcomeMessage() {
-        console.log('retrieve clicked');
+        // console.log('retrieve clicked');
+        HelloWorldService.executeHelloWorldService()
+        .then( response => console.log(response) )
+
     }
 
 }
