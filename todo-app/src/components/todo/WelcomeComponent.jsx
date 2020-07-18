@@ -8,6 +8,10 @@ class WelcomeComponent extends Component {
     constructor(props) {
         super(props);
         this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this);
+        this.state = {
+            welcomeMessasge : ''
+        }
+        this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
     }
 
     render() {
@@ -26,6 +30,10 @@ class WelcomeComponent extends Component {
                         className="btn btn-success"> Get Welcome Message</button>
                 </div>
 
+                <div className="container">
+                    {this.state.welcomeMessage}
+                </div>
+
             </div>
         )
     }
@@ -33,8 +41,13 @@ class WelcomeComponent extends Component {
     retrieveWelcomeMessage() {
         // console.log('retrieve clicked');
         HelloWorldService.executeHelloWorldService()
-        .then( response => console.log(response) )
+        .then( response => this.handleSuccessfulResponse(response) )
+        // .catch()
 
+    }
+
+    handleSuccessfulResponse(response) {
+        this.setState({welcomeMessage: response.data})
     }
 
 }
