@@ -39,8 +39,7 @@ public class TodoHardcodedService {
 			if(todo.getId() == id) {
 				return todo;
 			}
-		}
-		
+		}		
 		return null;
 	}
 
