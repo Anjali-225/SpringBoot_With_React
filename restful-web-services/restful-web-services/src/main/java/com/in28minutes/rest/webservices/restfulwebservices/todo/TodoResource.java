@@ -24,7 +24,7 @@ public class TodoResource {
 	}
 	
 	//DELETE /users/{username}/todo/{id}
-	@DeleteMapping("/users/{username}/todo/{id}")
+	@DeleteMapping("/users/{username}/todos/{id}")
 	public ResponseEntity<Void> deleteTodo(
 			@PathVariable String username, @PathVariable long id){
 		
