@@ -9,6 +9,10 @@ public class Todo {
 	private String description;
 	private Date targetDate;
 	private boolean isDone;
+	
+	protected Todo() {
+		
+	}
 
 	public Todo(Long id, String username, String description, Date targetDate, boolean isDone) {
 		super();
