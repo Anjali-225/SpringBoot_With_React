@@ -22,8 +22,4 @@ public class HelloWorldBean {
 //		return "HelloWorldBean [message=" + message + "]";
 		return String.format("HelloWorldBean [message=%s]", message);
 	}
-
-	
-	
-
 }

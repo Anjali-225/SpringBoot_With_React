@@ -44,6 +44,7 @@ public class TodoResource {
 			@PathVariable String username, @PathVariable long id){
 		
 		Todo todo = todoService.deleteById(id);
+		
 		if(todo != null) {
 			return ResponseEntity.noContent().build();			
 		}
@@ -79,7 +80,5 @@ public class TodoResource {
 				.path("/{id").buildAndExpand(createdTodo.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
-	}
-	
-	
+	}	
 }

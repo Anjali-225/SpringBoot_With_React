@@ -1,3 +1,5 @@
+//*** TodoDataService.js ***\\
+
 import axios from 'axios';
 
 class TodoDataService {
@@ -26,8 +28,6 @@ class TodoDataService {
         // console.log('executed service')
         return axios.post(`http://localhost:8080/users/${name}/todos/`, todo);
     }
-
-
 }
 
 export default new TodoDataService();

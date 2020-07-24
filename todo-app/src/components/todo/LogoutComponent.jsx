@@ -1,3 +1,5 @@
+//*** LogoutComponent.jsx ***\\
+
 import React, { Component } from 'react';
 // import AuthenticationService from'./AuthenticationService.js';
 // import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";

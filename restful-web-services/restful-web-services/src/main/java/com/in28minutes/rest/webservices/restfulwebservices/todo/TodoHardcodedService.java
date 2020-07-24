@@ -26,7 +26,7 @@ public class TodoHardcodedService {
 		if(todo.getId()==-1 || todo.getId()==0) {
 			todo.setId(++idCounter);
 			todos.add(todo);
-		}else {
+		} else {
 			deleteById(todo.getId());
 			todos.add(todo);
 		}

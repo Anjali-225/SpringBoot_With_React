@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins="http://localhost:4200")
 public class HelloWorldController {
 	
-	//GET 
-	//URI - /hello-world
-	//method - "Hello World"
-	
 //	@RequestMapping(method=RequestMethod.GET, path="/hello-world")
 	@GetMapping(path="/hello-world")
 	public String helloWorld() {
@@ -34,5 +30,4 @@ public class HelloWorldController {
 //			throw new RuntimeException("Something went wrong");
 			return new HelloWorldBean(String.format("Hello World %s", name));
 	}
-
 }

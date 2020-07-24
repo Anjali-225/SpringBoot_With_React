@@ -1,3 +1,5 @@
+//*** ListTodosComponent.jsx ***\\
+
 import React, { Component } from 'react';
 import AuthenticationService from'./AuthenticationService.js';
 // import { Route, Redirect } from 'react-router-dom';
@@ -56,13 +58,11 @@ class ListTodosComponent extends Component {
                 this.setState({message : `Delete of todo ${id} Successful`});
                 this.refreshTodos();
             }
-
         )
-
     }
 
     addTodoClicked(id) {
-        console.log('create  + id');
+        // console.log('create  + id');
         this.props.history.push(`/todos/-1`)
 
     }
@@ -71,7 +71,6 @@ class ListTodosComponent extends Component {
         console.log('update  + id');
         //  /todos/${id}
         this.props.history.push(`/todos/${id}`)
-
 
         // let username = AuthenticationService.getLoggedInUserName()
         // // console.log(id + " " + username);
@@ -98,10 +97,10 @@ class ListTodosComponent extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Description</th>                            
-                                <th>Is Completed?</th>
+                                {/*<th>id</th>*/}
+                                <th>Description</th> 
                                 <th>Target Date</th>
+                                <th>Is Completed?</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -111,7 +110,7 @@ class ListTodosComponent extends Component {
                             {
                                 this.state.todos.map (
                                     todo =>  <tr key={todo.id}>
-                                                 <td>{todo.id}</td>
+                                                {/*<td>{todo.id}</td>*/}
                                                 <td>{todo.description}</td> 
                                                 <td>{todo.done.toString()}</td>
                                                 <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td> 
@@ -122,7 +121,6 @@ class ListTodosComponent extends Component {
                                             </tr>
                                 )
                             }
-
                         
                         </tbody>
                     </table>

@@ -1,7 +1,8 @@
+//*** LoginComponent.jsx ***\\
+
 import React, { Component } from 'react';
 import AuthenticationService from'./AuthenticationService.js';
 // import { Route, Redirect } from 'react-router-dom';
-
 
 class LoginComponent extends Component {
 
@@ -19,17 +20,16 @@ class LoginComponent extends Component {
         // this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.loginClicked = this.loginClicked.bind(this);
-
     }
 
     handleChange(event) {
         // console.log(event.target.name);
-        console.log(this.state);
+        // console.log(this.state);
         this.setState(
             {
                 [event.target.name]: event.target.value
             }
-        );
+        )
     }
 
     // handleUsernameChange(event) {
@@ -58,10 +58,7 @@ class LoginComponent extends Component {
             // console.log('Failed');
             this.setState({showSuccessMessage: false})
             this.setState({hasLoginFailed: true})
-        }   
-           
-
-        //console.log(this.state);
+        }
     }
 
     render() {

@@ -1,9 +1,10 @@
+//*** TodoComponent.jsx ***\\
+
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TodoDataService from '../../api/todo/TodoDataService.js';
 import AuthenticationService from'./AuthenticationService.js';
-
 
 class TodoComponent extends Component {
 
@@ -29,7 +30,7 @@ class TodoComponent extends Component {
         let username = AuthenticationService.getLoggedInUserName()
 
         TodoDataService.retrieveTodo(username, this.state.id)
-            .then(response =>this.setState({
+            .then(response => this.setState({
                 description: response.data.description,
                 targetDate : moment(response.data.targetDate).format('YYYY-MM-DD')
             })
@@ -63,10 +64,10 @@ class TodoComponent extends Component {
         
         if(this.state.id === -1) { 
             TodoDataService.createTodo(username, todo)
-                .then(() => {this.props.history.push(`/todos`)})           
+                .then(() => this.props.history.push(`/todos`))           
         } else {  
             TodoDataService.updateTodo(username, this.state.id, todo)
-                .then(() => {this.props.history.push(`/todos`)})
+                .then(() => this.props.history.push(`/todos`))
         }
         
         console.log(values);
@@ -77,9 +78,7 @@ class TodoComponent extends Component {
         let {description, targetDate} = this.state; 
         // let targetDate = this.state.targetDate;
         return(
-
             <div>
-
                 <h1>Todo</h1>
 
                 <div className="container">
@@ -114,20 +113,15 @@ class TodoComponent extends Component {
 
                                     <button className="btn btn-success" type="submit">Save</button>
 
-
                                 </Form>    
-
-                                // <div>Something</div>
                             )
                         }
                     </Formik>
 
-
                 </div>
                 
             </div>
-        )
-        
+        )        
     }
 }
 

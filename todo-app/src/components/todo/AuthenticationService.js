@@ -1,3 +1,5 @@
+//*** AuthenticationService.js ***\\
+
 class AuthenticationService {
 
     registerSuccessfulLogin(username, password) {
