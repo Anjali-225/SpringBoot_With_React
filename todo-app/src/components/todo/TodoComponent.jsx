@@ -18,7 +18,6 @@ class TodoComponent extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.validate = this.validate.bind(this);
-
     }
 
     componentDidMount() {
@@ -39,7 +38,6 @@ class TodoComponent extends Component {
 
     validate(values) {
         let errors = {}
-        // console.log(values);
         if (!values.description) {
             errors.description = 'Enter a Description'
         } else if (values.description.lenght<5) {

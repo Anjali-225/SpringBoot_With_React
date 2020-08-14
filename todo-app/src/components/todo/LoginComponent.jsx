@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import AuthenticationService from'./AuthenticationService.js';
-// import { Route, Redirect } from 'react-router-dom';
 
 class LoginComponent extends Component {
 
@@ -25,11 +24,7 @@ class LoginComponent extends Component {
     handleChange(event) {
         // console.log(event.target.name);
         // console.log(this.state);
-        this.setState(
-            {
-                [event.target.name]: event.target.value
-            }
-        )
+        this.setState( { [event.target.name]: event.target.value } )
     }
 
     // handleUsernameChange(event) {

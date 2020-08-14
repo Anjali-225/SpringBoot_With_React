@@ -1,7 +1,6 @@
 //*** WelcomeComponent.jsx ***\\
 
 import React, { Component } from 'react';
-// import AuthenticationService from'./AuthenticationService.js';
 import { BrowserRouter as Link } from "react-router-dom";
 import HelloWorldService from '../../api/todo/HelloWorldService.js';
 
@@ -10,9 +9,7 @@ class WelcomeComponent extends Component {
     constructor(props) {
         super(props);
         this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this);
-        this.state = {
-            welcomeMessasge : ''
-        }
+        this.state = { welcomeMessasge : '' };
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
         this.handleError = this.handleError.bind(this);
     }
@@ -36,7 +33,6 @@ class WelcomeComponent extends Component {
                 <div className="container">
                     {this.state.welcomeMessage}
                 </div>
-
             </div>
         )
     }
@@ -52,7 +48,6 @@ class WelcomeComponent extends Component {
         HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
         .then( response => this.handleSuccessfulResponse(response) )
         .catch( error => this.handleError(error) )
-
     }
 
     handleSuccessfulResponse(response) {

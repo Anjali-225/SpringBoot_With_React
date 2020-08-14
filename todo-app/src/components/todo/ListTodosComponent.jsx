@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import AuthenticationService from'./AuthenticationService.js';
-// import { Route, Redirect } from 'react-router-dom';
 import TodoDataService from '../../api/todo/TodoDataService.js';
 import moment from 'moment';
 
@@ -62,16 +61,15 @@ class ListTodosComponent extends Component {
     }
 
     addTodoClicked(id) {
-        // console.log('create  + id');
         this.props.history.push(`/todos/-1`)
 
     }
 
     updateTodoClicked(id) {
-        console.log('update  + id');
-        //  /todos/${id}
+        console.log('update  + id');       
         this.props.history.push(`/todos/${id}`)
 
+        // /todos/${id}
         // let username = AuthenticationService.getLoggedInUserName()
         // // console.log(id + " " + username);
         // TodoDataService.deleteTodo(username, id)
@@ -80,9 +78,7 @@ class ListTodosComponent extends Component {
         //         this.setState({message : `Delete of todo ${id} Successful`});
         //         this.refreshTodos();
         //     }
-
         // )
-
     }
 
     render() {

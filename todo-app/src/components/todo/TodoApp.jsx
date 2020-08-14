@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import AuthenticationService from'./AuthenticationService.js';
 import AuthenticatedRoute from './AuthenticatedRoute.jsx';
 import LoginComponent from './LoginComponent.jsx';
 import ListTodosComponent from './ListTodosComponent.jsx';
@@ -12,7 +11,6 @@ import LogoutComponent from './LogoutComponent.jsx';
 import WelcomeComponent from './WelcomeComponent.jsx';
 import ErrorComponent from './ErrorComponent.jsx';
 import TodoComponent from './TodoComponent.jsx';
-
 
 class TodoApp extends Component {
     render() {
@@ -28,12 +26,12 @@ class TodoApp extends Component {
                             <AuthenticatedRoute path="/welcome/:name" exact component={WelcomeComponent} />
                             <AuthenticatedRoute path="/todos/:id" exact component={TodoComponent} />
                             <AuthenticatedRoute path="/todos" exact component={ListTodosComponent} />
-                            <AuthenticatedRoute path="/logout" exact component={LogoutComponent} />                            
+                            <AuthenticatedRoute path="/logout" exact component={LogoutComponent} />  
+                                                      
                             <Route path="" component={ErrorComponent} />
                         </Switch>
 
-                        <FooterComponent/>                       
-
+                        <FooterComponent/>   
                     </>                       
                 </Router>
 

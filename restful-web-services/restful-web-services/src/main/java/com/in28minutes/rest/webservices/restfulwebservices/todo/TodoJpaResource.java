@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-//import com.in28minutes.rest.webservices.restfulwebservices.todo.Todo;
+import com.in28minutes.rest.webservices.restfulwebservices.todo.Todo;
 
 import java.net.URI;
 import java.util.List;
@@ -31,7 +31,6 @@ public class TodoJpaResource {
 
 	@GetMapping("/jpa/users/{username}/todos")
 	public List<Todo> getAllTodos(@PathVariable String username) {
-		//Thread.sleep(3000);
 		return todoJpaRepository.findByUsername(username);
 //		return todoService.findAll();		     
 	}

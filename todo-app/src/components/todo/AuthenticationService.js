@@ -8,13 +8,11 @@ export const USER_NAME_SESSION_ATTRIBUTES_NAME = 'authenticatedUser'
 class AuthenticationService {
 
     executeBasicAuthenticationService(username, password){
-        // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
         return axios.get(`${API_URL}/basicauth`, 
             {headers: {authorization: this.createBasicAuthToken(username, password)}})
     }
 
     executeJwtAuthenticationService(username, password){
-        // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
         return axios.post(`${API_URL}/authenticate`, 
             {username, password} )
     }
@@ -29,7 +27,6 @@ class AuthenticationService {
 
     registerSuccessfulLogin(username, password) {
         // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
-
         //console.log("registerSuccessfulLogin")
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTES_NAME, username);
         this.setupAxiosInterceptors( this.createBasicAuthToken(username, password));
@@ -38,7 +35,6 @@ class AuthenticationService {
     registerSuccessfulLoginForJwt(username, token) {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTES_NAME, username);
         this.setupAxiosInterceptors( this.createJWTToken(token));
-
     }
 
     logout() {
@@ -46,29 +42,24 @@ class AuthenticationService {
     }
 
     isUserLoggedIn() {
-        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTES_NAME)
-        
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTES_NAME)        
         if(user === null) return false
         return true;
     }
 
     getLoggedInUserName() {
-        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTES_NAME)
-        
+        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTES_NAME)        
         if(user === null) return ''
         return user;
     }
 
-    setupAxiosInterceptors(token) {
-        
-
+    setupAxiosInterceptors(token) {       
         axios.interceptors.request.use (
             (config) => { 
                 if(this.isUserLoggedIn()) {
                     config.headers.authorization = token
                 }
-                return config 
-                
+                return config                 
             }
         )
     }

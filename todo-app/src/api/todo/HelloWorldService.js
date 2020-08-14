@@ -18,7 +18,6 @@ class HelloWorldService{
         // console.log('executed service')
         // let username = 'user'        
         // let password = 'password'
-
         // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
 
         return Axios.get(`http://localhost:8080/hello-world/path-variable/${name}`
